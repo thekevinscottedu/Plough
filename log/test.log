@@ -1,0 +1,219 @@
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000137)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000232)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000090)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.040108)[0m   [0mSELECT * FROM `users` WHERE (login = 'bob') LIMIT 1[0m
+  [4;36;1mUser Load (0.000532)[0m   [0;1mSELECT * FROM `users` WHERE (login = 'nonbob') LIMIT 1[0m
+  [4;35;1mUser Load (0.000480)[0m   [0mSELECT * FROM `users` WHERE (login = 'bob') LIMIT 1[0m
+  [4;36;1mUser Load (0.000433)[0m   [0;1mSELECT * FROM `users` WHERE (login = 'nonbob') LIMIT 1[0m
+  [4;35;1mSQL (0.000118)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000104)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000282)[0m   [0mSELECT `login` FROM `users` WHERE (`users`.login = 'x') [0m
+  [4;36;1mSQL (0.000194)[0m   [0;1mSELECT `email` FROM `users` WHERE (`users`.email = 'okbob@mcbob.com') [0m
+  [4;35;1mSQL (0.000202)[0m   [0mSELECT `login` FROM `users` WHERE (`users`.login = 'hugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhug') [0m
+  [4;36;1mSQL (0.000187)[0m   [0;1mSELECT `email` FROM `users` WHERE (`users`.email = 'okbob@mcbob.com') [0m
+  [4;35;1mSQL (0.000188)[0m   [0mSELECT `login` FROM `users` WHERE (`users`.login = '') [0m
+  [4;36;1mSQL (0.000191)[0m   [0;1mSELECT `email` FROM `users` WHERE (`users`.email = 'okbob@mcbob.com') [0m
+  [4;35;1mSQL (0.000237)[0m   [0mSELECT `login` FROM `users` WHERE (`users`.login = 'okbob') [0m
+  [4;36;1mSQL (0.000196)[0m   [0;1mSELECT `email` FROM `users` WHERE (`users`.email = 'okbob@mcbob.com') [0m
+  [4;35;1mUser Create (0.000181)[0m   [0mINSERT INTO `users` (`salt`, `hashed_password`, `login`, `email`, `created_at`) VALUES('GfDZgZ6XC8', '57bd4ff3ad0e0de1ff2f59a8d3986fd4283d64d2', 'okbob', 'okbob@mcbob.com', '2009-11-11 04:23:28')[0m
+  [4;36;1mSQL (0.036680)[0m   [0;1mSELECT `login` FROM `users` WHERE (`users`.login = 'okbob' AND `users`.id <> 1000004) [0m
+  [4;35;1mSQL (0.000330)[0m   [0mSELECT `email` FROM `users` WHERE (`users`.email IS NULL AND `users`.id <> 1000004) [0m
+  [4;36;1mSQL (0.000276)[0m   [0;1mSELECT `login` FROM `users` WHERE (`users`.login = 'okbob' AND `users`.id <> 1000004) [0m
+  [4;35;1mSQL (0.000244)[0m   [0mSELECT `email` FROM `users` WHERE (`users`.email = 'notavalidemail' AND `users`.id <> 1000004) [0m
+  [4;36;1mSQL (0.000238)[0m   [0;1mSELECT `login` FROM `users` WHERE (`users`.login = 'okbob' AND `users`.id <> 1000004) [0m
+  [4;35;1mSQL (0.000224)[0m   [0mSELECT `email` FROM `users` WHERE (`users`.email = 'validbob@mcbob.com' AND `users`.id <> 1000004) [0m
+  [4;36;1mUser Update (0.000237)[0m   [0;1mUPDATE `users` SET `email` = 'validbob@mcbob.com' WHERE `id` = 1000004[0m
+  [4;35;1mSQL (0.000574)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000105)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000278)[0m   [0mSELECT `login` FROM `users` WHERE (`users`.login = 'existingbob') [0m
+  [4;36;1mSQL (0.000195)[0m   [0;1mSELECT `email` FROM `users` WHERE (`users`.email IS NULL) [0m
+  [4;35;1mSQL (0.000109)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000100)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000289)[0m   [0mSELECT `login` FROM `users` WHERE (`users`.login = 'nonexistingbob') [0m
+  [4;36;1mSQL (0.000206)[0m   [0;1mSELECT `email` FROM `users` WHERE (`users`.email = 'nonexistingbob@mcbob.com') [0m
+  [4;35;1mUser Create (0.000177)[0m   [0mINSERT INTO `users` (`salt`, `hashed_password`, `login`, `email`, `created_at`) VALUES('JOM1OkKrIQ', 'f29c517d1a8a85ae7dd4f8b30fbcd8ebe53676f3', 'nonexistingbob', 'nonexistingbob@mcbob.com', '2009-11-11 04:23:29')[0m
+  [4;36;1mUser Load (0.000448)[0m   [0;1mSELECT * FROM `users` WHERE (login = 'nonexistingbob') LIMIT 1[0m
+  [4;35;1mSQL (0.000200)[0m   [0mSELECT `login` FROM `users` WHERE (`users`.login = 'newbob') [0m
+  [4;36;1mSQL (0.000187)[0m   [0;1mSELECT `email` FROM `users` WHERE (`users`.email = 'newbob@mcbob.com') [0m
+  [4;35;1mUser Create (0.000218)[0m   [0mINSERT INTO `users` (`salt`, `hashed_password`, `login`, `email`, `created_at`) VALUES('hhhwhnCTmk', 'c88a2c55197cc02a6980b8bb89695d970ec59028', 'newbob', 'newbob@mcbob.com', '2009-11-11 04:23:29')[0m
+  [4;36;1mUser Load (0.000441)[0m   [0;1mSELECT * FROM `users` WHERE (login = 'newbob') LIMIT 1[0m
+  [4;35;1mSQL (0.000585)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000111)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000382)[0m   [0mSELECT `login` FROM `users` WHERE (`users`.login = 'nonbob') [0m
+  [4;36;1mSQL (0.000207)[0m   [0;1mSELECT `email` FROM `users` WHERE (`users`.email = 'nonbob@mcbob.com') [0m
+  [4;35;1mSQL (0.000302)[0m   [0mSELECT `login` FROM `users` WHERE (`users`.login = 'nonbob') [0m
+  [4;36;1mSQL (0.000208)[0m   [0;1mSELECT `email` FROM `users` WHERE (`users`.email = 'nonbob@mcbob.com') [0m
+  [4;35;1mSQL (0.000226)[0m   [0mSELECT `login` FROM `users` WHERE (`users`.login = 'nonbob') [0m
+  [4;36;1mSQL (0.000260)[0m   [0;1mSELECT `email` FROM `users` WHERE (`users`.email = 'nonbob@mcbob.com') [0m
+  [4;35;1mSQL (0.000228)[0m   [0mSELECT `login` FROM `users` WHERE (`users`.login = 'nonbob') [0m
+  [4;36;1mSQL (0.000206)[0m   [0;1mSELECT `email` FROM `users` WHERE (`users`.email = 'nonbob@mcbob.com') [0m
+  [4;35;1mUser Create (0.000171)[0m   [0mINSERT INTO `users` (`salt`, `hashed_password`, `login`, `email`, `created_at`) VALUES('2DuqUspFT5', '8ad3f1d626e9970be000c2c828350ae37c864023', 'nonbob', 'nonbob@mcbob.com', '2009-11-11 04:23:29')[0m
+  [4;36;1mSQL (0.001187)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000111)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.000457)[0m   [0;1mSELECT * FROM `users` WHERE (login = 'longbob') LIMIT 1[0m
+  [4;35;1mSQL (0.000327)[0m   [0mSELECT `login` FROM `users` WHERE (`users`.login = 'longbob' AND `users`.id <> 1000003) [0m
+  [4;36;1mSQL (0.000262)[0m   [0;1mSELECT `email` FROM `users` WHERE (`users`.email = 'lbob@mcbob.com' AND `users`.id <> 1000003) [0m
+  [4;35;1mUser Update (0.000178)[0m   [0mUPDATE `users` SET `hashed_password` = '078cf6ae2de80ed6c004c8c8576a5572e077a52c' WHERE `id` = 1000003[0m
+  [4;36;1mUser Load (0.000487)[0m   [0;1mSELECT * FROM `users` WHERE (login = 'longbob') LIMIT 1[0m
+  [4;35;1mUser Load (0.000436)[0m   [0mSELECT * FROM `users` WHERE (login = 'longbob') LIMIT 1[0m
+  [4;36;1mSQL (0.000235)[0m   [0;1mSELECT `login` FROM `users` WHERE (`users`.login = 'longbob' AND `users`.id <> 1000003) [0m
+  [4;35;1mSQL (0.000219)[0m   [0mSELECT `email` FROM `users` WHERE (`users`.email = 'lbob@mcbob.com' AND `users`.id <> 1000003) [0m
+  [4;36;1mUser Update (0.000142)[0m   [0;1mUPDATE `users` SET `hashed_password` = '00728d3362c26746ec25963f71be022b152237a9' WHERE `id` = 1000003[0m
+  [4;35;1mUser Load (0.000457)[0m   [0mSELECT * FROM `users` WHERE (login = 'longbob') LIMIT 1[0m
+  [4;36;1mUser Load (0.000452)[0m   [0;1mSELECT * FROM `users` WHERE (login = 'longbob') LIMIT 1[0m
+  [4;35;1mSQL (0.026980)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000247)[0m   [0;1mBEGIN[0m
+WARNING: Can't mass-assign these protected attributes: salt, id
+  [4;35;1mSQL (0.000264)[0m   [0mSELECT `login` FROM `users` WHERE (`users`.login = 'badbob') [0m
+  [4;36;1mSQL (0.000199)[0m   [0;1mSELECT `email` FROM `users` WHERE (`users`.email = 'badbob@mcbob.com') [0m
+  [4;35;1mUser Create (0.000172)[0m   [0mINSERT INTO `users` (`salt`, `hashed_password`, `login`, `email`, `created_at`) VALUES('bdLSAbU4fI', 'c12d889fc13901e203b16e70d117e0df7f7f0f57', 'badbob', 'badbob@mcbob.com', '2009-11-11 04:23:29')[0m
+WARNING: Can't mass-assign these protected attributes: salt, id
+  [4;36;1mSQL (0.000260)[0m   [0;1mSELECT `login` FROM `users` WHERE (`users`.login = 'verybadbob' AND `users`.id <> 1000008) [0m
+  [4;35;1mSQL (0.000225)[0m   [0mSELECT `email` FROM `users` WHERE (`users`.email = 'badbob@mcbob.com' AND `users`.id <> 1000008) [0m
+  [4;36;1mUser Update (0.000210)[0m   [0;1mUPDATE `users` SET `login` = 'verybadbob' WHERE `id` = 1000008[0m
+  [4;35;1mSQL (0.000301)[0m   [0mSELECT `login` FROM `users` WHERE (`users`.login = 'verybadbob' AND `users`.id <> 1000008) [0m
+  [4;36;1mSQL (0.000354)[0m   [0;1mSELECT `email` FROM `users` WHERE (`users`.email = 'badbob@mcbob.com' AND `users`.id <> 1000008) [0m
+  [4;35;1mSQL (0.009529)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000112)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000115)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000099)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.000960)[0m   [0mSELECT * FROM `users` WHERE (login = 'bob') LIMIT 1[0m
+  [4;36;1mSQL (0.000358)[0m   [0;1mSELECT `login` FROM `users` WHERE (`users`.login = 'bob' AND `users`.id <> 1000001) [0m
+  [4;35;1mSQL (0.000258)[0m   [0mSELECT `email` FROM `users` WHERE (`users`.email = 'bob@mcbob.com' AND `users`.id <> 1000001) [0m
+  [4;36;1mUser Update (0.000204)[0m   [0;1mUPDATE `users` SET `hashed_password` = '424000d87ef6d658f7dc2608142103ec4b9adf2c' WHERE `id` = 1000001[0m
+  [4;35;1mSQL (0.000672)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000115)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000221)[0m   [0mSELECT `login` FROM `users` WHERE (`users`.login = 'nonexistingbob') [0m
+  [4;36;1mSQL (0.000212)[0m   [0;1mSELECT `email` FROM `users` WHERE (`users`.email = 'nonexistingbob@mcbob.com') [0m
+  [4;35;1mUser Create (0.000220)[0m   [0mINSERT INTO `users` (`salt`, `hashed_password`, `login`, `email`, `created_at`) VALUES('1000', 'b1d27036d59f9499d403f90e0bcf43281adaa844', 'nonexistingbob', 'nonexistingbob@mcbob.com', '2009-11-11 04:23:29')[0m
+  [4;36;1mSQL (0.000787)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000125)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000095)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000079)[0m   [0;1mBEGIN[0m
+
+
+Processing UserController#login (for 0.0.0.0 at 2009-11-10 23:25:49) [POST]
+  Session ID: 
+  Parameters: {"user"=>{"password"=>"test", "login"=>"bob"}, "action"=>"login", "controller"=>"user"}
+  [4;35;1mUser Load (0.000611)[0m   [0mSELECT * FROM `users` WHERE (login = 'bob') LIMIT 1[0m
+Redirected to http://localhost/user/welcome
+Completed in 0.00465 (215 reqs/sec) | DB: 0.05623 (1210%) | 302 Found [http://localhost/user/login?user%5Blogin%5D=bob&user%5Bpassword%5D=test]
+  [4;36;1mSQL (0.000191)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000094)[0m   [0mBEGIN[0m
+
+
+Processing UserController#signup (for 0.0.0.0 at 2009-11-10 23:25:49) [POST]
+  Session ID: 
+  Parameters: {"user"=>{"password_confirmation"=>"wrong", "password"=>"newpassword", "login"=>"newbob", "email"=>"newbob@mcbob.com"}, "action"=>"signup", "controller"=>"user"}
+  [4;36;1mSQL (0.000152)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000113)[0m   [0mBEGIN[0m
+
+
+Processing UserController#login (for 0.0.0.0 at 2009-11-10 23:25:49) [POST]
+  Session ID: 
+  Parameters: {"user"=>{"password"=>"test", "login"=>"bob"}, "action"=>"login", "controller"=>"user"}
+  [4;36;1mUser Load (0.000492)[0m   [0;1mSELECT * FROM `users` WHERE (login = 'bob') LIMIT 1[0m
+Redirected to http://localhost/user/welcome
+Completed in 0.00106 (947 reqs/sec) | DB: 0.00395 (374%) | 302 Found [http://localhost/user/login?user%5Blogin%5D=bob&user%5Bpassword%5D=test]
+  [4;35;1mSQL (0.000138)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000100)[0m   [0;1mBEGIN[0m
+
+
+Processing UserController#login (for 0.0.0.0 at 2009-11-10 23:25:49) [POST]
+  Session ID: 
+  Parameters: {"user"=>{"password"=>"test", "login"=>"bob"}, "action"=>"login", "controller"=>"user"}
+  [4;35;1mUser Load (0.000461)[0m   [0mSELECT * FROM `users` WHERE (login = 'bob') LIMIT 1[0m
+Redirected to http://localhost/user/welcome
+Completed in 0.00106 (941 reqs/sec) | DB: 0.00202 (190%) | 302 Found [http://localhost/user/login?user%5Blogin%5D=bob&user%5Bpassword%5D=test]
+  [4;36;1mSQL (0.000226)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000086)[0m   [0mBEGIN[0m
+
+
+Processing UserController#login (for 0.0.0.0 at 2009-11-10 23:25:49) [POST]
+  Session ID: 
+  Parameters: {"user"=>{"password"=>"not_correct", "login"=>"bob"}, "action"=>"login", "controller"=>"user"}
+  [4;36;1mUser Load (0.000478)[0m   [0;1mSELECT * FROM `users` WHERE (login = 'bob') LIMIT 1[0m
+Rendering user/login
+Completed in 0.02509 (39 reqs/sec) | Rendering: 0.02418 (96%) | DB: 0.00228 (9%) | 200 OK [http://localhost/user/login?user%5Blogin%5D=bob&user%5Bpassword%5D=not_correct]
+  [4;35;1mSQL (0.000181)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000114)[0m   [0;1mBEGIN[0m
+
+
+Processing UserController#login (for 0.0.0.0 at 2009-11-10 23:25:49) [POST]
+  Session ID: 
+  Parameters: {"user"=>{"password"=>"test", "login"=>"bob"}, "action"=>"login", "controller"=>"user"}
+  [4;35;1mUser Load (0.000484)[0m   [0mSELECT * FROM `users` WHERE (login = 'bob') LIMIT 1[0m
+Redirected to http://localhost/user/welcome
+Completed in 0.00104 (961 reqs/sec) | DB: 0.00274 (263%) | 302 Found [http://localhost/user/login?user%5Blogin%5D=bob&user%5Bpassword%5D=test]
+  [4;36;1mSQL (0.000138)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000119)[0m   [0mBEGIN[0m
+
+
+Processing UserController#welcome (for 0.0.0.0 at 2009-11-10 23:25:49) [GET]
+  Session ID: 
+  Parameters: {"action"=>"welcome", "controller"=>"user"}
+Redirected to http://localhost/user/login
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 0.00030 (3377 reqs/sec) | DB: 0.00182 (616%) | 302 Found [http://localhost/user/welcome]
+
+
+Processing UserController#login (for 0.0.0.0 at 2009-11-10 23:25:49) [POST]
+  Session ID: 
+  Parameters: {"user"=>{"password"=>"test", "login"=>"bob"}, "action"=>"login", "controller"=>"user"}
+  [4;36;1mUser Load (0.000812)[0m   [0;1mSELECT * FROM `users` WHERE (login = 'bob') LIMIT 1[0m
+  [4;35;1mSQL (0.000153)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000094)[0m   [0;1mBEGIN[0m
+
+
+Processing UserController#hidden (for 0.0.0.0 at 2009-11-10 23:25:49) [GET]
+  Session ID: 
+  Parameters: {"action"=>"hidden", "controller"=>"user"}
+Redirected to http://localhost/user/login
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 0.00032 (3086 reqs/sec) | DB: 0.00261 (805%) | 302 Found [http://localhost/user/hidden]
+  [4;35;1mSQL (0.000169)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000109)[0m   [0;1mBEGIN[0m
+
+
+Processing UserController#signup (for 0.0.0.0 at 2009-11-10 23:25:49) [POST]
+  Session ID: 
+  Parameters: {"user"=>{"password_confirmation"=>"newpassword", "password"=>"newpassword", "login"=>"newbob", "email"=>"newbob@mcbob.com"}, "action"=>"signup", "controller"=>"user"}
+  [4;35;1mSQL (0.000137)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000497)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000306)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000284)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000365)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000308)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000269)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000267)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000285)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000332)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000500)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000571)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000368)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000510)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000329)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000278)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000347)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000264)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000269)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000467)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000337)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000276)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000428)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000279)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000304)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000286)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000268)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000265)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000368)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000269)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000281)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000295)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000310)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000334)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000279)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000274)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000268)[0m   [0mSHOW TABLES[0m

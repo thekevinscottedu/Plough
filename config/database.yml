@@ -19,7 +19,7 @@ development:
   encoding: utf8
   database: plough_development
   username: root
-  password:
+  password: xkscottx
   socket: /opt/local/var/run/mysql5/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -30,7 +30,7 @@ test:
   encoding: utf8
   database: plough_test
   username: root
-  password:
+  password: xkscottx
   socket: /opt/local/var/run/mysql5/mysqld.sock
 
 production:
